@@ -26,3 +26,17 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+## Notes Jasper
+1. install b4a.exe in your path
+1. connect b4a.exe to your account
+1. connect b4a.exe default to HockeyApp
+1. b4a new (existing, blank)
+1. ng build --base-href
+1. copy contents of /dist to /<b4a-folder>/public
+1. b4a deploy
+
+See also:
+- https://www.back4app.com/docs/javascript/angular-template
+- https://www.back4app.com/docs/command-line-tool/how-to-use
