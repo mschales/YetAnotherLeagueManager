@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../environments/environment';
+import { Router, Route } from '@angular/router';
 
 declare const Parse: any;
 
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   email = '';
   password = '';
 
-  constructor() {
+  constructor(private _router: Router) {
     Parse.initialize(environment.PARSE_APP_ID, environment.PARSE_JS_KEY);
     Parse.serverURL = environment.serverURL;
   }
@@ -25,7 +26,6 @@ export class LoginComponent implements OnInit {
     user.set("password", this.password);
 
     user.logIn(user.username, user.password).then(function (user) {
-      console.log('Logged in ' + user.get("username") + ' and email: ' + user.get("email"));
     }).catch(function (error) {
       console.log("Error: " + error.code + " " + error.message);
     });
@@ -39,8 +39,8 @@ export class LoginComponent implements OnInit {
     this.password = (<HTMLInputElement>event.target).value;
   };
 
-
   ngOnInit() {
   }
 
+  
 }
