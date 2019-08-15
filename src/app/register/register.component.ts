@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {environment} from '../../environments/environment';
+import { Component } from '@angular/core';
+import { environment } from '../../environments/environment';
 
 declare const Parse: any;
 
@@ -27,26 +27,26 @@ export class RegisterComponent {
     user.set("rememberMe", this.rememberMe);
 
     user.signUp(null).then(
-        function(user) {
-            alert('User created successfully with email: ' + user.get("email"));
-        },
+      function (user) {
+        alert('User created successfully with email: ' + user.get("email"));
+      },
 
-        function(error) {
-            alert("Error " + error.code + ": " + error.message);
-        }
+      function (error) {
+        alert("Error " + error.code + ": " + error.message);
+      }
     );
   };
 
   handleUsernameChange = (event: KeyboardEvent) => {
-      this.email = (<HTMLInputElement>event.target).value;
+    this.email = (<HTMLInputElement>event.target).value;
   };
 
   handlePasswordChange = (event: KeyboardEvent) => {
-      this.password = (<HTMLInputElement>event.target).value;
+    this.password = (<HTMLInputElement>event.target).value;
   };
 
   handleRememberMeClick = () => {
-      this.rememberMe = !this.rememberMe;
+    this.rememberMe = !this.rememberMe;
   };
 }
 

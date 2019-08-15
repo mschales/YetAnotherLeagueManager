@@ -1,1 +1,21 @@
-<p>login works!</p>
+<div>
+
+    <div class="container">
+        <form class="form-signup" (submit)="handleSubmit()">
+        <h2 class="form-signup-heading">Login to your account</h2>
+        <label for="username"> Username </label>
+        <input id='username' type="text" class="form-control" placeholder="Email address" required autoFocus
+          (change)="handleUsernameChange($event)" />
+  
+        <label for="password"> Password </label>
+        <input type="password" id='password' class="form-control" placeholder="Password" required
+          (change)="handlePasswordChange($event)" />
+  
+        <label class="checkbox"> <input type="checkbox" value="remember-me" (change)="handleRememberMeClick()" /> &nbsp;
+          Remember me </label>
+  
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+      </form>
+    </div>
+  
+  </div>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from '../../environments/environment';
+
+declare const Parse: any;
 
 @Component({
   selector: 'app-login',
@@ -7,7 +10,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  email = '';
+  password = '';
+
+  constructor() {
+    Parse.initialize(environment.PARSE_APP_ID, environment.PARSE_JS_KEY);
+    Parse.serverURL = environment.serverURL;
+  }
+
+  handleSubmit = () => {
+    const user = new Parse.User();
+    user.set("username", this.email);
+    user.set("email", this.email);
+    user.set("password", this.password);
+
+    user.logIn(user.username, user.password).then(function (user) {
+      console.log('Logged in ' + user.get("username") + ' and email: ' + user.get("email"));
+    }).catch(function (error) {
+      console.log("Error: " + error.code + " " + error.message);
+    });
+  };
+
+  handleUsernameChange = (event: KeyboardEvent) => {
+    this.email = (<HTMLInputElement>event.target).value;
+  };
+
+  handlePasswordChange = (event: KeyboardEvent) => {
+    this.password = (<HTMLInputElement>event.target).value;
+  };
+
 
   ngOnInit() {
   }
