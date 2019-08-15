@@ -34,7 +34,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 1. connect b4a.exe default to HockeyApp
 1. b4a new (existing, blank)
 1. ng build --base-href
-1. copy contents of /dist to /<b4a-folder>/public
+1. copy contents of /dist to /\<b4a-folder\>/public
 1. b4a deploy
 
 See also:
