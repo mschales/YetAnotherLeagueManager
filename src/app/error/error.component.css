@@ -1,0 +1,12 @@
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.title {
+    display: grid;
+    justify-items: center;
+    font-weight: bold;
+    text-transform: uppercase;
+}

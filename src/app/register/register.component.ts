@@ -1,15 +1,15 @@
 import {Component} from '@angular/core';
-import {environment} from '../environments/environment';
+import {environment} from '../../environments/environment';
 
 declare const Parse: any;
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
 
-export class AppComponent {
+export class RegisterComponent {
   email = '';
   password = '';
   rememberMe = false;
