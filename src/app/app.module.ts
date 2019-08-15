@@ -10,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { AuthService as AuthGuard  } from './services/auth.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LogoutComponent } from './logout/logout.component';
+import { NavigationComponent } from './dashboard/navigation/navigation.component';
+import { ContentComponent } from './dashboard/content/content.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
@@ -34,7 +36,9 @@ const routes: Routes = [
     DashboardComponent,
     RegisterComponent,
     HomeComponent,
-    LogoutComponent
+    LogoutComponent,
+    NavigationComponent,
+    ContentComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
