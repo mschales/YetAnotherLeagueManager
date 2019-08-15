@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { Router, Route } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, Route, ActivatedRoute } from '@angular/router';
 
 declare const Parse: any;
 
@@ -9,7 +9,8 @@ declare const Parse: any;
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+
+export class LoginComponent  {
 
   email = '';
   password = '';
@@ -20,16 +21,12 @@ export class LoginComponent implements OnInit {
   }
 
   handleSubmit = () => {
-    const user = new Parse.User();
-    user.set("username", this.email);
-    user.set("email", this.email);
-    user.set("password", this.password);
-
-    user.logIn(user.username, user.password).then(function (user) {
-    }).catch(function (error) {
-      console.log("Error: " + error.code + " " + error.message);
-    });
-  };
+    const parseUser = new Parse.User();
+    parseUser.set("username", this.email);
+    parseUser.set("email", this.email);
+    parseUser.set("password", this.password);
+    this.checkUser(this._router, parseUser);
+  }
 
   handleUsernameChange = (event: KeyboardEvent) => {
     this.email = (<HTMLInputElement>event.target).value;
@@ -39,8 +36,16 @@ export class LoginComponent implements OnInit {
     this.password = (<HTMLInputElement>event.target).value;
   };
 
+  checkUser = (router, user) => {
+    user.logIn(this.email, this.password).then(function () {
+      router.navigate(['dashboard']);
+    }).catch(function (error) {
+      console.log("Error: " + error.code + " " + error.message);
+    });
+  }
+
   ngOnInit() {
   }
 
-  
+
 }
