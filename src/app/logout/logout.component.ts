@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
-
-declare const Parse: any;
+import {ParseService} from '../parse.service';
 
 @Component({
   selector: 'app-logout',
@@ -10,15 +9,15 @@ declare const Parse: any;
   styleUrls: ['./logout.component.css']
 })
 
-export class LogoutComponent  {
+export class LogoutComponent implements OnInit {
+  parse: any;
 
-  constructor(private _router: Router) {
-    Parse.initialize(environment.PARSE_APP_ID, environment.PARSE_JS_KEY);
-    Parse.serverURL = environment.serverURL;
+  constructor(private _router: Router, parseService: ParseService) {
+    this.parse = parseService.getParse();
   }
 
   logOutUser = () => {
-    Parse.User.logOut();
+    this.parse.User.logOut();
     this._router.navigate((['']));
   }
 

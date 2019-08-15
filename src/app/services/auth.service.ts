@@ -3,20 +3,20 @@ import { environment } from '../../environments/environment';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, Route } from '@angular/router';
 import { parse } from 'url';
 import { Observable } from 'rxjs/internal/Observable';
+import {ParseService} from '../parse.service';
 
-declare const Parse: any;
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService  {
+  parse: any;
 
-  constructor(private _authService: AuthService, private _router: Router) {
-    Parse.initialize(environment.PARSE_APP_ID, environment.PARSE_JS_KEY);
-    Parse.serverURL = environment.serverURL;
+  constructor(private _authService: AuthService, private _router: Router, parseService: ParseService) {
+    this.parse = parseService.getParse();
   }
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if (Parse.User.current()) {
+    if (this.parse.User.current()) {
         return true;
     }
 

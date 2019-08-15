@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { environment } from '../../environments/environment';
-
-declare const Parse: any;
+import {ParseService} from '../parse.service';
 
 @Component({
   selector: 'app-register',
@@ -13,40 +11,40 @@ export class RegisterComponent {
   email = '';
   password = '';
   rememberMe = false;
+  parse: any;
 
-  constructor() {
-    Parse.initialize(environment.PARSE_APP_ID, environment.PARSE_JS_KEY);
-    Parse.serverURL = environment.serverURL;
+  constructor(parseService: ParseService) {
+    this.parse = parseService.getParse();
   }
 
   handleSubmit = () => {
-    const user = new Parse.User();
-    user.set("username", this.email);
-    user.set("email", this.email);
-    user.set("password", this.password);
-    user.set("rememberMe", this.rememberMe);
+    const newUser = new this.parse.User();
+    newUser.set('username', this.email);
+    newUser.set('email', this.email);
+    newUser.set('password', this.password);
+    newUser.set('rememberMe', this.rememberMe);
 
-    user.signUp(null).then(
+    newUser.signUp(null).then(
       function (user) {
-        alert('User created successfully with email: ' + user.get("email"));
+        alert('User created successfully with email: ' + user.get('email'));
       },
 
       function (error) {
-        alert("Error " + error.code + ": " + error.message);
+        alert('Error ' + error.code + ': ' + error.message);
       }
     );
-  };
+  }
 
   handleUsernameChange = (event: KeyboardEvent) => {
     this.email = (<HTMLInputElement>event.target).value;
-  };
+  }
 
   handlePasswordChange = (event: KeyboardEvent) => {
     this.password = (<HTMLInputElement>event.target).value;
-  };
+  }
 
   handleRememberMeClick = () => {
     this.rememberMe = !this.rememberMe;
-  };
+  }
 }
 
