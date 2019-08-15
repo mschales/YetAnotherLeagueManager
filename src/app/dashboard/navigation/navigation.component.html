@@ -1,1 +1,44 @@
-<div id='navigation' class='navigation'> </div>
+<div id='navigation' class='navigation'>
+    <div class='welcome'>
+        Hello, {{ user.get('username') }}
+    </div>
+
+    <div class='navigation-list'>
+        <ul>
+            <li class='title'> USERS</li>
+            <li> Edit profile</li>
+            <li> Add new user </li>
+        </ul>
+
+        <ul>
+            <li class='title'> My teams</li>
+            <li> Manage / view teams </li>
+            <li> Discussion board</li>
+        </ul>
+
+        <ul>
+            <li class='title'> League management </li>
+            <li> Manage teams </li>
+            <li> Manage leagues </li>
+            <li> Manage schedule </li>
+        </ul>
+
+        <ul>
+            <li class='title'> Statistics</li>
+            <li> Team rankings </li>
+            <li> Player leaderboards</li>
+            <li> Week matches </li>
+        </ul>
+
+        <ul>
+            <li class='title'> League center </li>
+            <li> Announcement board </li>
+            <li> Discussion board</li>
+        </ul>
+
+        <ul>
+            <li class='title-logout'> <a href='/logout'>Logout</a></li>
+        </ul>
+    </div>
+
+</div>

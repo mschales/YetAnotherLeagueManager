@@ -5,7 +5,6 @@ import { NavigationComponent } from "./navigation/navigation.component";
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  template: '<app-content> </app-content> <app-navigation></app-navigation>',
   styleUrls: ['./dashboard.component.css']
 })
 
