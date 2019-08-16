@@ -15,7 +15,6 @@ export class NavigationComponent implements OnInit {
         this.user = this.parse.User.current();
     }
 
-
     ngOnInit() {
     }
 
