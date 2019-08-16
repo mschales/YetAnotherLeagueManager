@@ -1,0 +1,30 @@
+<div class='content'>
+    <div class='page-content'>
+        <div>
+
+
+            <h1> Create new team </h1>
+            <form class="form" (submit)="handleSubmit()">
+
+                <div class='form-control'>
+                        <label for="name"> Team name </label>
+                        <input id='name' type="text" class="form-control" placeholder="Team Name" required autoFocus (change)="handleNameChange($event)" />
+                </div>
+
+                <div class='form-control'>
+                        <label for="manager"> Team Manager </label>
+                        <input id='manager' type="text" class="form-control" placeholder="< select from userlist >" required autoFocus (change)="HandleManagerChange($event)" />
+                </div>
+
+                <div class='form-control'>
+                        <label for="league"> League </label>
+                        <input id='league' type="text" class="form-control" placeholder="< select from league dropdown list >" required autoFocus (change)="handlLeagueChange($event)" />
+                </div>
+
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+<app-navigation> </app-navigation>

@@ -12,14 +12,20 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LogoutComponent } from './logout/logout.component';
 import { NavigationComponent } from './dashboard/navigation/navigation.component';
 import { ContentComponent } from './dashboard/content/content.component';
+import { TeamComponent } from './team/team.component';
+import { TeamAddComponent } from './team/add/teamAdd';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
   { path: 'register', pathMatch: 'full', component: RegisterComponent },
+
   { path: 'login', pathMatch: 'full', component: LoginComponent },
   { path: 'login', pathMatch: 'full', component: LoginComponent },
   { path: 'logout', component: LogoutComponent },
+
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
+  { path: 'team', pathMatch: 'full', component: TeamComponent, canActivate: [AuthGuard]},
+  { path: 'team/add', component: TeamAddComponent, canActivate: [AuthGuard]},
   { path: '**', component: ErrorComponent }
 ];
 
@@ -38,7 +44,9 @@ const routes: Routes = [
     HomeComponent,
     LogoutComponent,
     NavigationComponent,
-    ContentComponent
+    ContentComponent,
+    TeamComponent,
+    TeamAddComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
