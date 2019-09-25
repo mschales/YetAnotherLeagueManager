@@ -14,6 +14,7 @@ import { NavigationComponent } from './dashboard/navigation/navigation.component
 import { ContentComponent } from './dashboard/content/content.component';
 import { TeamComponent } from './team/team.component';
 import { TeamAddComponent } from './team/add/teamAdd';
+import { ListTeamsComponent } from './team/list-teams/list-teams.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   { path: 'team', pathMatch: 'full', component: TeamComponent, canActivate: [AuthGuard]},
   { path: 'team/add', component: TeamAddComponent, canActivate: [AuthGuard]},
+  { path: 'team/list', component: ListTeamsComponent, canActivate: [AuthGuard]},
   { path: '**', component: ErrorComponent }
 ];
 
@@ -46,7 +48,8 @@ const routes: Routes = [
     NavigationComponent,
     ContentComponent,
     TeamComponent,
-    TeamAddComponent
+    TeamAddComponent,
+    ListTeamsComponent
   ],
   providers: [],
   bootstrap: [AppComponent],

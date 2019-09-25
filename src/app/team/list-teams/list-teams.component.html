@@ -1,0 +1,15 @@
+<div class='content'>
+    <div class='page-content'>
+        <div>
+            <div class='TeamDisplay' id='TeamDisplay'>
+                <ng-template ngFor let-item [ngForOf]="TeamList" let-i="index">
+                    <div class='team-item'> {{ TeamList[i].id }}</div>
+                    <div class='team-item'> {{ TeamList[i].name }}</div>
+                    <div class='team-item'> <a href="/team/{{  TeamList[i].id }}">View Team</a> </div>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-navigation> </app-navigation>

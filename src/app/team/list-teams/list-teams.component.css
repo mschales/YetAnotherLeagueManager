@@ -1,0 +1,10 @@
+.TeamDisplay {
+    display: grid;
+    grid-template-columns: 20% 40% 40%;
+    width: 100%;
+}
+
+.team-item {
+    border-bottom: 1px solid #666;
+    padding: 9px;
+}
