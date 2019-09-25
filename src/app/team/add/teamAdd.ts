@@ -1,50 +1,53 @@
-import { Component, OnInit } from '@angular/core';
-import { ParseService } from '../../parse.service';
+import {Component, OnInit} from '@angular/core';
+import {ParseService} from '../../parse.service';
 
 @Component({
-  selector: 'app-team-add',
-  templateUrl: './TeamAdd.component.html',
-  styleUrls: ['../team.component.css']
+    selector: 'app-team-add',
+    templateUrl: './TeamAdd.component.html',
+    styleUrls: ['../team.component.css']
 })
 
 export class TeamAddComponent {
-  name = '';
-  manager = '';
-  league = '';
-  parse: any;
+    name = '';
+    manager = '';
+    league = '';
+    parse: any;
 
-  constructor(parseService: ParseService) {
-    this.parse = parseService.getParse();
-  }
+    constructor(parseService: ParseService) {
+        this.parse = parseService.getParse();
+    }
 
-  findTeam = () => {
-    const newTeam = this.parse.Object.extend("teams");
-    const createTeam = new newTeam();
+    findTeam = () => {
+        const newTeam = this.parse.Object.extend('teams');
+        const createTeam = new newTeam();
 
-    createTeam.get('J5zbG3DUrl').then(
-      (team) => {
-        return 'hello'
-      },
-      (error) => {
-        return;
-      }
-    )
-  }
+        createTeam.get('J5zbG3DUrl').then(
+            (team) => {
+                console.log('team found ' + team);
+            },
+            (error) => {
+                console.error(error);
+            });
+    }
 
-  handleSubmit = () => {
-    const newTeam = this.parse.Object.extend("teams");
-    const createTeam = new newTeam();
-    createTeam.set('name', this.name);
-    createTeam.set('email', this.manager);
-    createTeam.set('password', this.league);
-    createTeam.save().then((team) => {}, (error) => { console.log(error.message) })
-  }
+    handleSubmit = () => {
+        const newTeam = this.parse.Object.extend('teams');
+        const createTeam = new newTeam();
+        this.findTeam();
 
-  handleNameChange = (event: KeyboardEvent) => {
-    this.name = (<HTMLInputElement>event.target).value;
-  }
+        // createTeam.set('name', this.name);
+        // createTeam.set('email', this.manager);
+        // createTeam.set('password', this.league);
 
-  handleManagerChange = (event: KeyboardEvent) => {
-    this.manager = (<HTMLInputElement>event.target).value;
-  }
+        // createTeam.save().then( (team) => { alert('created new team') },  (error) => { console.log(error.message) } )
+    }
+    //
+    // handleNameChange = (event: KeyboardEvent) => {
+    //     this.name = (<HTMLInputElement>event.target).value;
+    // }
+    //
+    // handleManagerChange = (event: KeyboardEvent) => {
+    //     this.manager = (<HTMLInputElement>event.target).value;
+    // }
 }
+
