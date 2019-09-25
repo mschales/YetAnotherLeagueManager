@@ -9,7 +9,7 @@ import { createOfflineCompileUrlResolver } from '@angular/compiler';
 @Component({
   selector: 'app-list-teams',
   templateUrl: './list-teams.component.html',
-  styleUrls: ['./list-teams.component.css']
+  styleUrls: ['../team.css']
 })
 
 export class ListTeamsComponent implements OnInit {

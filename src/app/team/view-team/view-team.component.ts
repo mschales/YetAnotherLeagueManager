@@ -4,7 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 @Component({
   selector: 'app-view-team',
   templateUrl: './view-team.component.html',
-  styleUrls: ['../list-teams/list-teams.component.css']
+  styleUrls: ['../team.css']
 })
 export class ViewTeamComponent implements OnInit {
 

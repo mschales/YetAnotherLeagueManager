@@ -4,7 +4,7 @@ import {ParseService} from '../../parse.service';
 @Component({
     selector: 'app-team-add',
     templateUrl: './TeamAdd.component.html',
-    styleUrls: ['../team.component.css']
+    styleUrls: ['../team.css']
 })
 
 export class TeamAddComponent {
