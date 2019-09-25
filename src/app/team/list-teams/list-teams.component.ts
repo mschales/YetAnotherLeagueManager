@@ -24,7 +24,6 @@ export class ListTeamsComponent implements OnInit {
   getTeams = () => {
     const newTeam = this.parse.Object.extend("teams");
     const query = new this.parse.Query(newTeam);
-    let tempResults = [];
     const getResults = () => {
       query.find().then(res => {
         res.forEach((item) => {
@@ -34,7 +33,6 @@ export class ListTeamsComponent implements OnInit {
           })
         })
       })
-      return tempResults;
     }
     getResults();    
   }
