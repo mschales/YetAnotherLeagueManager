@@ -1,5 +1,16 @@
 h1 {
-    margin-bottom: 48px;
+    background-color: #18437c;
+    color: #FFF;
+    font-size: 18px;
+    text-transform: uppercase;
+    padding: 9px;
+    margin: 0 0 18px 0;
+}
+
+.page-content {
+    margin: 0 0 0 20px;
+    width: 95%;
+    padding: 19px 19px 19px 19px;
 }
 
 .TeamDisplay {
@@ -35,4 +46,32 @@ h1 {
     padding: 9px;
     font-weight: bold;
     text-transform: uppercase;
+}
+
+.playerForm {
+    display: grid;
+    grid-template-columns: 29% 29% 15% 15%;
+    grid-gap: 18px;
+}
+
+.playerForm input[type="text"] {
+    padding: 9px;
+}
+
+.playerForm select {
+    padding: 9px;
+}
+
+.managerForm {
+    display: grid;
+    grid-template-columns: 75% 15%;
+    grid-gap: 18px;
+}
+
+.managerForm input[type="text"] {
+    padding: 9px;
+}
+
+.managerForm select {
+    padding: 9px;
 }

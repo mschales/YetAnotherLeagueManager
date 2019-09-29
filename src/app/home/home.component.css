@@ -1,3 +1,8 @@
+.content {
+    display: grid;
+    background-color: blueviolet;
+    margin-top: 48px;
+}
 
 h1 {
     text-align: center;
@@ -6,19 +11,13 @@ h1 {
 
 .title {
     display: grid;
-    justify-items: center;
     font-weight: bold;
+    justify-items: center;
     text-transform: uppercase;
 }
 
-.content {
-    display: grid;
-    width: 100%;
-    margin-top: 48px;
-}
-
 .content-page {
-    margin: 0 auto;
+    display: grid;
     justify-content: center;
     align-content: center;
 }
