@@ -62,16 +62,20 @@ h1 {
     padding: 9px;
 }
 
-.managerForm {
+.teamManagerForm {
     display: grid;
-    grid-template-columns: 75% 15%;
+    grid-template-columns: 50% 20%;
     grid-gap: 18px;
 }
 
-.managerForm input[type="text"] {
+.teamManagerForm input[type="text"] {
     padding: 9px;
 }
 
-.managerForm select {
-    padding: 9px;
+.teamManagerForm select {
+    align-content: center;
+    justify-content: center;
+    padding: 9px !important;
+    margin-top: 18px;
+    height: 48px;
 }

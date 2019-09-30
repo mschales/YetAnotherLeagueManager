@@ -1,20 +1,20 @@
-<div class='content'>
-    <div class='page-content'>
+<div class="content">
+    <div class="page-content">
         <h1> {{ teamName }}</h1>
         <div>
-            <div class='TeamHeader'>
-                <div class='team-header'> Name </div>
-                <div class='team-header'> Position </div>
-                <div class='team-header'> Jersey </div>
-                <div class='team-header'> Jersey </div>
+            <div class="TeamHeader">
+                <div class="team-header"> Name </div>
+                <div class="team-header"> Position </div>
+                <div class="team-header"> Games Played </div>
+                <div class="team-header"> Points </div>
             </div>
 
-            <div class='TeamDisplay' id='TeamDisplay'>
+            <div class="TeamDisplay" id="TeamDisplay">
                 <ng-template ngFor let-item [ngForOf]="playerList" let-i="index">
-                    <div class='team-item'> {{ playerList[i].firstname }} {{ playerList[i].surname }}</div>
-                    <div class='team-item'> {{ playerList[i].position }}</div>
-                    <div class='team-item'> {{ playerList[i].jersey }}</div>
-                    <div class='team-item'> {{ playerList[i].jersey }}</div>
+                    <div class="team-item"> {{ playerList[i].firstname }} {{ playerList[i].surname }}</div>
+                    <div class="team-item"> {{ playerList[i].position }}</div>
+                    <div class="team-item"> {{ playerList[i].jersey }}</div>
+                    <div class="team-item"> {{ playerList[i].jersey }}</div>
                 </ng-template>
             </div>
         </div>
@@ -30,17 +30,31 @@
                     (change)="updateSurname($event)" />
 
                 <select id="position" required autoFocus (change)="updatePosition($event)">
-                    <option id='F'>Forward</option>
-                    <option id='D'>Defender</option>
-                    <option id='G'>Goalie</option>
+                    <option id="Forward">Forward</option>
+                    <option id="Defender">Defender</option>
+                    <option id="Goalie">Goalie</option>
                 </select>
 
                 <select id="jersey" required autoFocus (change)="updateJersey($event)">
-                    <option id='F'>1</option>
-                    <option id='D'>2</option>
-                    <option id='F'>3</option>
+                    <option id="F">1</option>
+                    <option id="D">2</option>
+                    <option id="F">3</option>
                 </select>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Add Player</button>
+            </form>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="authLevel===2||authLevel===1">
+        <div class="page-content">
+            <h1> Add Player to team</h1>
+            <form class="teamManagerForm" (submit)="teamManagerForm()">
+                <select id="position" required autoFocus (change)="updateManager($event)">
+                    <ng-template ngFor let-item [ngForOf]="playerList" let-i="index">
+                        <option value="{{ userList.id }}"> {{ userList[i].email }} </option>
+                    </ng-template>
+                </select>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Change Manager</button>
             </form>
         </div>
     </ng-container>

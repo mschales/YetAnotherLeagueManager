@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ParseService } from '../../parse.service';
+import { format } from 'url';
 
 @Component({
   selector: 'app-view-team',
@@ -8,14 +9,17 @@ import { ParseService } from '../../parse.service';
   styleUrls: ['../team.css']
 })
 
+@Injectable()
 export class ViewTeamComponent implements OnInit {
 
   parse: any;
   playerList: any;
+  userList: any;
   firstname: string;
   surname: string;
   jersey: number;
   position: string;
+  manager:number;
   teamid: number;
   teamName: string;
   authLevel: number;
@@ -49,6 +53,7 @@ export class ViewTeamComponent implements OnInit {
     const newTeam = this.parse.Object.extend("Players");
     const query = new this.parse.Query(newTeam);
     const tempList = [];
+    query.equalTo("teamid", this.id);
     const getPlayers = () => {
       query.find().then(res => {
         res.forEach((item) => {
@@ -88,8 +93,8 @@ export class ViewTeamComponent implements OnInit {
     addPlayer.set('surname', this.surname);
     addPlayer.set('position', this.position);
     addPlayer.set('teamid', this.id);
-    addPlayer.save().then((player) => {
-      alert('Added player to team')
+    addPlayer.save().then(() => {
+      this.getPlayerList();
     }, (error) => { console.log(error.message) }
     )
   }
@@ -101,7 +106,6 @@ export class ViewTeamComponent implements OnInit {
     this.getUser();
     this.getTeam();
     this.getPlayerList();
-    console.log(this.playerList);
   }
 }
 

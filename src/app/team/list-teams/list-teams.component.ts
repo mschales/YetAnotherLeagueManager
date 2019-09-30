@@ -37,6 +37,11 @@ export class ListTeamsComponent implements OnInit {
     getResults();    
   }
 
+  
+  resetForm = () => {
+
+  }
+
   ngOnInit() {
     this.getTeams();
   }
