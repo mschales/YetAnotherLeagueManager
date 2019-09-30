@@ -19,7 +19,7 @@ export class ViewTeamComponent implements OnInit {
   surname: string;
   jersey: number;
   position: string;
-  manager:number;
+  manager: any;
   teamid: number;
   teamName: string;
   authLevel: number;
@@ -70,6 +70,25 @@ export class ViewTeamComponent implements OnInit {
     this.playerList = getPlayers();
   }
 
+  getUserList = () => {
+    const newTeam = this.parse.Object.extend("User");
+    const query = new this.parse.Query(newTeam);
+    const tempList = [];
+    const getUsers = () => {
+      query.find().then(res => {
+        res.forEach((item) => {
+          tempList.push({
+            email: item.get("email"),
+            name: item.get('email'),
+            role: item.get('role')
+          })
+        })
+      })
+      return tempList;
+    }
+    this.userList = getUsers();
+  }
+
   updateFirstName = (event: KeyboardEvent) => {
     this.firstname = (<HTMLInputElement>event.target).value;
   }
@@ -99,12 +118,29 @@ export class ViewTeamComponent implements OnInit {
     )
   }
 
+  updateManager  = () => {
+    this.manager = (<HTMLInputElement>event.target).value;
+    console.log(this.manager);
+  }
+
+  teamManagerForm = () => {
+    console.log(this.manager);
+    const parseTeam = this.parse.Object.extend("teams");
+    let query = new this.parse.Query(parseTeam);
+    query.get(this.id)
+      .then((item) => {
+        item.set("manager", this.manager);
+        item.save();
+      })
+  }
+
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = params['id'];
     });
     this.getUser();
     this.getTeam();
+    this.getUserList();
     this.getPlayerList();
   }
 }

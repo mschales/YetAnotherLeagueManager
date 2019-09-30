@@ -49,9 +49,9 @@
         <div class="page-content">
             <h1> Add Player to team</h1>
             <form class="teamManagerForm" (submit)="teamManagerForm()">
-                <select id="position" required autoFocus (change)="updateManager($event)">
-                    <ng-template ngFor let-item [ngForOf]="playerList" let-i="index">
-                        <option value="{{ userList.id }}"> {{ userList[i].email }} </option>
+                <select id="teamManagerForm" required autoFocus (change)="updateManager($event)">
+                    <ng-template ngFor let-item [ngForOf]="userList" let-i="index">
+                        <option id="{{ userList[i].email }}" value="{{ userList[i].email }}"> {{ userList[i].email }} </option>
                     </ng-template>
                 </select>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Change Manager</button>
