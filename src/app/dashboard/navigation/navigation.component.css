@@ -10,8 +10,22 @@
 .welcome {
     color: #FFF;
     background-color: rgb(31, 103, 197);
+    font-size: 0.8em;
+    text-transform: uppercase;
+    font-weight: bold;
     padding: 9px;
-    margin-bottom: 18px;
+}
+
+
+.panel {
+    color: #FFF;
+    background-color: rgb(31, 103, 197);
+    font-size: 0.8em;
+    text-transform: uppercase;
+    font-weight: bold;
+    width: 100%;
+    margin: 0;
+    padding: 0px;
 }
 
 .navigation-list ul {
@@ -24,8 +38,8 @@
 .navigation-list li {
     background-color: rgb(19, 19, 19);
     border-bottom: 1px solid #666;
-    font-size: 14px;
-    padding: 9px;
+    line-height: 36px;
+    padding: 4px 0 4px 9px;
     color: #FFF;
 }
 
@@ -44,14 +58,6 @@
     padding: 9px;
 }
 
-.title-logout {
-    background-color: rgb(124, 24, 24) !important;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-top: 18px;
-    padding: 9px;
-}
-
 li a:link {
     color: #FFF !important;
     text-decoration: none;
@@ -59,4 +65,60 @@ li a:link {
 
 li a:visited {
     color: #FFF !important;
+}
+
+li {
+    text-transform: uppercase !important;
+    font-size: 0.8em !important;
+    font-weight: bold;
+}
+
+.league {
+    position: relative;
+    min-width: 64px;
+    min-height: 64px;
+    border-radius: 2px;
+    border: 2px solid rgb(0, 177, 15);
+    margin-right: 9px;
+}
+
+.discussion {
+    position: relative;
+    min-width: 64px;
+    min-height: 64px;
+    border: 2px solid rgb(180, 0, 111);
+    margin-right: 9px;
+}
+
+.logout {
+    background-color:  rgb(255, 0, 0);
+    border:  2px solid rgb(255, 0, 0);
+    margin-right: 9px;
+}
+
+.user {
+    position: relative;
+    min-width: 64px;
+    min-height: 64px;
+    width: 64px;
+    height: 64px;
+    border: 2px solid rgb(255, 136, 0);
+    margin-right: 9px;
+}
+
+.rankings {
+    position: relative;
+    min-width: 64px;
+    min-height: 64px;
+    border: 2px solid rgb(0, 159, 252);
+    margin-right: 9px;
+}
+
+
+.admin {
+    position: relative;
+    min-width: 64px;
+    min-height: 64px;
+    border: 2px solid rgb(227, 252, 0);
+    margin-right: 9px;
 }

@@ -20,6 +20,7 @@ export class ViewTeamComponent implements OnInit {
   jersey: number;
   position: string;
   manager: any;
+  curUser: any;
   teamid: number;
   teamName: string;
   authLevel: number;
@@ -27,6 +28,7 @@ export class ViewTeamComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, parseService: ParseService) {
     this.parse = parseService.getParse();
+    this.curUser = this.parse.User.current().id;
   }
 
   getUser = () => {
@@ -46,6 +48,9 @@ export class ViewTeamComponent implements OnInit {
     query.get(this.id)
       .then((item) => {
         this.teamName = item.get("name");
+        if (item.get("manager") !== undefined) {
+          this.manager = item.get("manager");
+        }
       })
   };
 
@@ -78,6 +83,7 @@ export class ViewTeamComponent implements OnInit {
       query.find().then(res => {
         res.forEach((item) => {
           tempList.push({
+            id: item.id,
             email: item.get("email"),
             name: item.get('email'),
             role: item.get('role')

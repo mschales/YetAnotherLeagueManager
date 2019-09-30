@@ -1,43 +1,34 @@
 <div id='navigation' class='navigation'>
     <div class='welcome'>
-        Hello, {{ user.get('username') }}
+        no notifications
     </div>
 
     <div class='navigation-list'>
         <ul>
-            <li class='title'> USERS</li>
-            <li> Edit profile</li>
-            <li> Add new user </li>
+            <li><span class="user"></span> Edit profile</li>
+        </ul>
+        <ul>
+            <li><span class="admin"></span> Manage users </li>
+            <li><span class="admin"></span> Manage league </li>
+            <li><span class="admin"></span> Manage teams </li>
+            <li><span class="admin"></span> View reports </li>
+        </ul>
+        <ul>
+            <li><span class="league"></span> <a href='/team/list'> Browse Teams</a> </li>
+            <li><span class="league"></span> Match schedule </li>
         </ul>
 
         <ul>
-            <li class='title'> My teams</li>
-            <li> Manage / view teams </li>
-            <li> Discussion board</li>
+            <li><span class="rankings"></span> Team rankings </li>
+            <li><span class="rankings"></span> Player leaderboards</li>
         </ul>
 
         <ul>
-            <li class='title'> League management </li>
-            <li> <a href='/team/add'> Add Team</a> </li>
-            <li> <a href='/team/list'> List Teams</a> </li>
-            <li> Manage schedule </li>
+            <li><span class='discussion'></span> Discussion board</li>
         </ul>
 
         <ul>
-            <li class='title'> Statistics</li>
-            <li> Team rankings </li>
-            <li> Player leaderboards</li>
-            <li> Week matches </li>
-        </ul>
-
-        <ul>
-            <li class='title'> League center </li>
-            <li> Announcement board </li>
-            <li> Discussion board</li>
-        </ul>
-
-        <ul>
-            <li class='title-logout'> <a href='/logout'>Logout</a></li>
+            <li><span class='logout'></span> <a href='/logout'>Logout</a></li>
         </ul>
     </div>
 
