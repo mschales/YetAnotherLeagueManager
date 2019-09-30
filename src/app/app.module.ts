@@ -16,6 +16,7 @@ import { TeamComponent } from './team/team.component';
 import { TeamAddComponent } from './team/add/teamAdd';
 import { ListTeamsComponent } from './team/list-teams/list-teams.component';
 import { ViewTeamComponent } from './team/view-team/view-team.component';
+import { MatchesComponent } from './admin/matches/matches.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'team/add', component: TeamAddComponent, canActivate: [AuthGuard]},
   { path: 'team/list', component: ListTeamsComponent, canActivate: [AuthGuard]},
   { path: 'team/:id', component: ViewTeamComponent, canActivate: [AuthGuard]},
+  { path: 'admin/matches', component: MatchesComponent, canActivate: [AuthGuard]},
   { path: '**', component: ErrorComponent }
 ];
 
@@ -52,7 +54,8 @@ const routes: Routes = [
     TeamComponent,
     TeamAddComponent,
     ListTeamsComponent,
-    ViewTeamComponent
+    ViewTeamComponent,
+    MatchesComponent
   ],
   providers: [],
   bootstrap: [AppComponent],

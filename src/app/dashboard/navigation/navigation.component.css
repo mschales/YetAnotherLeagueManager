@@ -70,7 +70,7 @@ li a:visited {
 li {
     text-transform: uppercase !important;
     font-size: 0.8em !important;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .league {

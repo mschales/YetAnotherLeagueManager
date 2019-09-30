@@ -150,4 +150,3 @@ export class ViewTeamComponent implements OnInit {
     this.getPlayerList();
   }
 }
-
