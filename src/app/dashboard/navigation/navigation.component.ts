@@ -16,6 +16,11 @@ export class NavigationComponent implements OnInit {
     }
 
     ngOnInit() {
+        const userObject = this.parse.Object.extend("User");
+        const getuser = new this.parse.Query(userObject);
+        if (this.user===null) return;
+        getuser.get(this.user.id).then((info) => {
+            this.user.authLevel = info.get("role")
+        });
     }
-
 }

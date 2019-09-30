@@ -1,20 +1,23 @@
-<div>
-
-  <div class="container">
-
-      <h1> Hockey App </h1>
+<app-navigation> </app-navigation>
+<div class="content">
+  <div class="page-content">
+    <h1> Create YALM account </h1>
     <form class="form-signup" (submit)="handleSubmit()">
-      <h2 class="form-signup-heading">Please sign up</h2>
-      <label for="username"> Username </label>
-      <input id='username' type="text" class="form-control" placeholder="Email address" required autoFocus
-        (change)="handleUsernameChange($event)" />
+      <div class='form-holder'>
+        <label for="firstname"> First Name </label>
+        <input type="firstname" id='firstname' class="form-control" placeholder="First Name" />
 
-      <label for="password"> Password </label>
-      <input type="password" id='password' class="form-control" placeholder="Password" required
-        (change)="handlePasswordChange($event)" />
+        <label for="surname"> Surname </label>
+        <input type="surname" id='surname' class="form-control" placeholder="surname" required />
 
-      <label class="checkbox"> <input type="checkbox" value="remember-me" (change)="handleRememberMeClick()" /> &nbsp;
-        Remember me </label>
+        <label for="username"> Username </label>
+        <input id='username' type="text" class="form-control" placeholder="Email address" required
+          (change)="handleUsernameChange($event)" />
+
+        <label for="password"> Password </label>
+        <input type="password" id='password' class="form-control" placeholder="Password" required
+          (change)="handlePasswordChange($event)" />
+      </div>
 
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
     </form>

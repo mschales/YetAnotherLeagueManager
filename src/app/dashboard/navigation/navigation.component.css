@@ -122,3 +122,12 @@ li {
     border: 2px solid rgb(227, 252, 0);
     margin-right: 9px;
 }
+
+.login-register {
+    margin-top: 18px !important;
+}
+
+.login-register li {
+    font-size: 1em !important;
+    padding: 18px;
+}

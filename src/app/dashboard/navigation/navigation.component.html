@@ -1,35 +1,47 @@
 <div id='navigation' class='navigation'>
-    <div class='welcome'>
-        no notifications
-    </div>
-
+    <ng-container *ngIf="user!==null">
+        <div class='welcome'>
+            no notifications
+        </div>
+    </ng-container>
     <div class='navigation-list'>
-        <ul>
-            <li><span class="user"></span> Edit profile</li>
-        </ul>
-        <ul>
-            <li><span class="admin"></span> Manage users </li>
-            <li><span class="admin"></span> Manage league </li>
-            <li><span class="admin"></span> Manage teams </li>
-            <li><span class="admin"></span> View reports </li>
-        </ul>
-        <ul>
-            <li><span class="league"></span> <a href='/team/list'> Browse Teams</a> </li>
-            <li><span class="league"></span> Match schedule </li>
-        </ul>
+        <ng-container *ngIf="user===null">
+            <ul class='login-register'>
+                <li><span class='league'></span> <a href='/login'>Login</a></li>
+                <li><span class='rankings'></span> <a href='/register'>Register</a></li>
+            </ul>
+        </ng-container>
 
-        <ul>
-            <li><span class="rankings"></span> Team rankings </li>
-            <li><span class="rankings"></span> Player leaderboards</li>
-        </ul>
+        <ng-container *ngIf="user">
+            <ul>
+                <li><span class="user"></span> Edit profile</li>
+            </ul>
+            <ng-container *ngIf="user.authLevel===1||user.authLevel===2">
+                <ul>
+                    <li><span class="admin"></span> Manage users </li>
+                    <li><span class="admin"></span> Manage league </li>
+                    <li><span class="admin"></span> Manage teams </li>
+                    <li><span class="admin"></span> View reports </li>
+                </ul>
+            </ng-container>
+            <ul>
+                <li><span class="league"></span> <a href='/team/list'> Browse Teams</a> </li>
+                <li><span class="league"></span> Match schedule </li>
+            </ul>
 
-        <ul>
-            <li><span class='discussion'></span> Discussion board</li>
-        </ul>
+            <ul>
+                <li><span class="rankings"></span> Team rankings </li>
+                <li><span class="rankings"></span> Player leaderboards</li>
+            </ul>
 
-        <ul>
-            <li><span class='logout'></span> <a href='/logout'>Logout</a></li>
-        </ul>
+            <ul>
+                <li><span class='discussion'></span> Discussion board</li>
+            </ul>
+
+            <ul>
+                <li><span class='logout'></span> <a href='/logout'>Logout</a></li>
+            </ul>
+        </ng-container>
     </div>
 
 </div>

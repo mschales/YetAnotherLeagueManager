@@ -1,23 +1,26 @@
-.content {
-    display: grid;
-    background-color: blueviolet;
-    margin-top: 48px;
+h1 {
+    background-color: #18437c;
+    color: #FFF;
+    font-size: 18px;
+    text-transform: uppercase;
+    padding: 9px;
+    margin: 0 0 18px 0;
 }
 
-h1 {
-    text-align: center;
-    text-transform: uppercase;
+.content {
+    margin-top: 0;
 }
+
+.page-content {
+    margin: 0 0 0 20px;
+    width: 95%;
+    padding: 19px 19px 19px 19px;
+}
+
 
 .title {
     display: grid;
     font-weight: bold;
     justify-items: center;
     text-transform: uppercase;
-}
-
-.content-page {
-    display: grid;
-    justify-content: center;
-    align-content: center;
 }
