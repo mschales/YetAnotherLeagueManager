@@ -16,7 +16,6 @@
     padding: 9px;
 }
 
-
 .panel {
     color: #FFF;
     background-color: rgb(31, 103, 197);
@@ -31,15 +30,15 @@
 .navigation-list ul {
     display: grid;
     list-style-type: none;
-    margin: 0px 0px 0px 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 
 .navigation-list li {
     background-color: rgb(19, 19, 19);
     border-bottom: 1px solid #666;
-    line-height: 36px;
-    padding: 4px 0 4px 9px;
+    line-height: 36px !important;
+    padding: 4px 0 0 9px;
     color: #FFF;
 }
 
@@ -77,22 +76,35 @@ li {
     min-width: 64px;
     min-height: 64px;
     border-radius: 2px;
-    border: 2px solid rgb(0, 177, 15);
-    margin-right: 9px;
+    border: 1px solid rgb(0, 177, 15);
+    margin-right: 4px;
 }
+
+.league-icon {
+    color: rgb(0, 177, 15);
+}
+
 
 .discussion {
     position: relative;
     min-width: 64px;
     min-height: 64px;
-    border: 2px solid rgb(180, 0, 111);
-    margin-right: 9px;
+    border: 1px solid rgb(255, 14, 163);
+    margin-right: 4px;
+}
+
+.discussion-icon {
+    color: rgb(255, 14, 163);
 }
 
 .logout {
-    background-color:  rgb(255, 0, 0);
-    border:  2px solid rgb(255, 0, 0);
-    margin-right: 9px;
+    background-color:rgb(255, 0, 0);
+    border: 1px solid rgb(255, 0, 0);
+    margin-right: 4px;
+}
+
+.logout-icon {
+    color: rgb(255, 60, 60);
 }
 
 .user {
@@ -101,26 +113,42 @@ li {
     min-height: 64px;
     width: 64px;
     height: 64px;
-    border: 2px solid rgb(255, 136, 0);
-    margin-right: 9px;
+    border: 1px solid rgb(255, 136, 0);
+    margin-right: 4px;
 }
+
+.user-icon {
+    color:rgb(255, 136, 0);
+}
+
+.user-icon {
+    color: rgb(255, 136, 0);
+  }
 
 .rankings {
     position: relative;
     min-width: 64px;
     min-height: 64px;
-    border: 2px solid rgb(0, 159, 252);
-    margin-right: 9px;
+    border: 1px solid rgb(0, 159, 252);
+    margin-right: 4px;
 }
 
+.rankings-icon {
+    color: rgb(0, 159, 252);
+  }
 
 .admin {
     position: relative;
     min-width: 64px;
     min-height: 64px;
-    border: 2px solid rgb(227, 252, 0);
-    margin-right: 9px;
+    border: 1px solid rgb(227, 252, 0);
+    margin-right: 4px;
 }
+
+.admin-icon {
+    color: rgb(227, 252, 0);
+  }
+
 
 .login-register {
     margin-top: 18px !important;
@@ -129,4 +157,9 @@ li {
 .login-register li {
     font-size: 1em !important;
     padding: 18px;
+}
+
+.icon-align {
+    margin-left: 4px;
+    padding-bottom: 2px;
 }

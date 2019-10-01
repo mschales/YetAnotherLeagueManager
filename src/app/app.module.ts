@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ErrorComponent } from './error/error.component';
@@ -18,6 +18,8 @@ import { ListTeamsComponent } from './team/list-teams/list-teams.component';
 import { ViewTeamComponent } from './team/view-team/view-team.component';
 import { MatchesComponent } from './admin/matches/matches.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule, MatNativeDateModule, MatInputModule, MatSliderModule, MatSelectModule } from '@angular/material';
+import 'hammerjs/hammer';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
@@ -39,7 +41,13 @@ const routes: Routes = [
 @NgModule({
   imports: [
     BrowserModule,
+    MatSliderModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatInputModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes),
     BrowserAnimationsModule
   ],

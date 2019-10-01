@@ -28,23 +28,35 @@
     <div class="page-content">
             <h1> Add Player to team</h1>
             <form class="playerForm" (submit)="addPlayerSubmit()">
-                <input id="firstName" type="text" class="form-control" placeholder="First Name" required
-                    (change)="updateFirstName($event)" />
-                <input id="surname" type="text" class="form-control" placeholder="Surname" required
-                    (change)="updateSurname($event)" />
 
-                <select id="home" required autoFocus (change)="updateHomeTeam($event)">
-                    <option id="Forward">Forward</option>
-                    <option id="Defender">Defender</option>
-                    <option id="Goalie">Goalie</option>
-                </select>
 
-                <select id="visitor" required autoFocus (change)="updateVisitorTeam($event)">
-                    <option id="F">1</option>
-                    <option id="D">2</option>
-                    <option id="F">3</option>
-                </select>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Add Match</button>
+                    <mat-form-field>
+                            <mat-select id='jersey' placeholder="SELECT HOME TEAM" (change)="updateJersey($event)" required>
+                                <mat-option id="3" value="1">1</mat-option>
+                                <mat-option id="3" value="2">2</mat-option>
+                                <mat-option id="3" value="3">3</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                <mat-form-field>
+                        <mat-select id='jersey' placeholder="SELECT VISITOR TEAM" (change)="updateJersey($event)" required>
+                            <mat-option id="3" value="1">1</mat-option>
+                            <mat-option id="3" value="2">2</mat-option>
+                            <mat-option id="3" value="3">3</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+
+                
+                    <mat-form-field>
+                            <input matInput [matDatepicker]="picker" placeholder="CHOOSE A DATE">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker startView="month" [startAt]="startDate"></mat-datepicker>
+                          </mat-form-field>
+                          
+   
+
+                <button type="submit">Add Match</button>
             </form>
         </div>
 </div>

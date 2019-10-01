@@ -1,7 +1,7 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ParseService } from '../../parse.service';
-import { format } from 'url';
+import {FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-view-team',
@@ -11,6 +11,8 @@ import { format } from 'url';
 
 @Injectable()
 export class ViewTeamComponent implements OnInit {
+  firstNameValidator = new FormControl('', [Validators.required]);
+  positionValidator = new FormControl('', [Validators.required]);
 
   parse: any;
   playerList: any;
@@ -25,6 +27,10 @@ export class ViewTeamComponent implements OnInit {
   teamName: string;
   authLevel: number;
   id: string;
+
+  getErrorMessage() {
+    return  'You must enter a value';
+  }
 
   constructor(private route: ActivatedRoute, parseService: ParseService) {
     this.parse = parseService.getParse();
@@ -103,12 +109,12 @@ export class ViewTeamComponent implements OnInit {
     this.surname = (<HTMLInputElement>event.target).value;
   }
 
-  updatePosition = () => {
-    this.position = (<HTMLInputElement>event.target).value;
+  updatePosition = (data) => {
+    this.position = data.value;
   }
 
-  updateJersey = () => {
-    this.jersey = parseInt((<HTMLInputElement>event.target).value);
+  updateJersey = (data) => {
+    this.jersey = data.value;
   }
 
   addPlayerSubmit = () => {

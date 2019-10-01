@@ -15,32 +15,32 @@
 
         <ng-container *ngIf="user">
             <ul>
-                <li><span class="user"></span> Edit profile</li>
+                <li><span class="user"></span> <i class="material-icons user-icon icon-align">receipt</i> Edit profile</li>
             </ul>
             <ng-container *ngIf="user.authLevel===1||user.authLevel===2">
                 <ul>
-                    <li><span class="admin"></span> Manage users </li>
-                    <li><span class="admin"></span> Manage league </li>
-                    <li><span class="admin"></span> Manage teams </li>
-                    <li><span class="admin"></span> <a href="/admin/matches/">Manage Match schedule</a> </li>
+                    <li><span class="admin"></span> <i class="material-icons admin-icon icon-align">people_alt</i> Manage users </li>
+                    <li><span class="admin"></span> <i class="material-icons admin-icon icon-align">pages</i> Manage league </li>
+                    <li><span class="admin"></span> <i class="material-icons admin-icon icon-align">receipt</i> Manage teams </li>
+                    <li><span class="admin"></span> <i class="material-icons admin-icon icon-align">watch_later</i> <a href="/admin/matches/">Manage Match schedule</a> </li>
                 </ul>
             </ng-container>
             <ul>
-                <li><span class="league"></span> <a href='/team/list'> Browse Teams</a> </li>
-                <li><span class="league"></span> Match schedule </li>
+                <li><span class="league"></span> <i class="material-icons league-icon icon-align">dashboard</i> <a href='/team/list'> Browse Teams</a> </li>
+                <li><span class="league"></span> <i class="material-icons league-icon icon-align">assignment</i> Match schedule </li>
             </ul>
 
             <ul>
-                <li><span class="rankings"></span> Team rankings </li>
-                <li><span class="rankings"></span> Player leaderboards</li>
+                <li><span class="rankings"></span> <i class="material-icons rankings-icon icon-align">equalizer</i> Team rankings </li>
+                <li><span class="rankings"></span> <i class="material-icons rankings-icon icon-align">casino</i> Player leaderboards</li>
             </ul>
 
             <ul>
-                <li><span class='discussion'></span> Discussion board</li>
+                <li><span class='discussion'></span> <i class="material-icons discussion-icon icon-align">chat</i> Discussion board</li>
             </ul>
 
             <ul>
-                <li><span class='logout'></span> <a href='/logout'>Logout</a></li>
+                <li><span class='logout'></span> <i class="material-icons logout-icon icon-align">power_settings_new</i> <a href='/logout'>Logout</a></li>
             </ul>
         </ng-container>
     </div>

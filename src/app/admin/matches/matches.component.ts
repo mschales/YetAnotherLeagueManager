@@ -1,6 +1,7 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ParseService } from '../../parse.service';
+import {FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-matches',
@@ -22,10 +23,26 @@ export class MatchesComponent implements OnInit {
   teamName: string;
   authLevel: number;
   id: string;
+  datePicker:any;
 
   constructor(private route: ActivatedRoute, parseService: ParseService) {
     this.parse = parseService.getParse();
     this.curUser = this.parse.User.current().id;
+    this.datePicker = Date.now();
+  }
+
+  updateDate = () => {
+    this.datePicker = (<HTMLInputElement>event.target).value;
+    this.datePicker = (<HTMLInputElement>event.target).value;
+    console.log(this.datePicker);
+  }
+
+  updateHomeTeam = () => {
+    console.log(this.datePicker);
+  }
+
+  updateVisitorTeam = () => {
+    console.log(this.datePicker);
   }
 
   getMatches = () => {
@@ -49,7 +66,6 @@ export class MatchesComponent implements OnInit {
       })
       return tempList;
     }
-    console.log(tempList);
     this.matchList = generateMatchList();
   }
 

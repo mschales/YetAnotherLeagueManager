@@ -93,3 +93,8 @@ h1 {
     margin-top: 18px;
     height: 48px;
 }
+
+::ng-deep .cdk-overlay-container {
+    position: fixed !important;
+    z-index: 100000 !important; /* set value you need */
+}
