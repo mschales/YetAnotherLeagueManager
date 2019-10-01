@@ -36,14 +36,14 @@ export class MatchesComponent implements OnInit {
       query.find().then(res => {
         res.forEach((match) => {
           const date = match.get("date");
-          const format_date = ` ${date.getDate()}/${date.getMonth()}/${date.getFullYear()} (${date.getHours()}:${date.getMinutes()})`;
+          const formattedDate = ` ${date.getDate()}/${date.getMonth()}/${date.getFullYear()} (${date.getHours()}:${date.getMinutes()})`;
           tempList.push({
             id: match.id,
             home: match.get("home"),
             visitor: match.get("visitor"),
             home_goals: match.get("home_goals"),
             visitor_goals: match.get("visitor_goals"),
-            date: format_date
+            date: formattedDate
           })
         })
       })
