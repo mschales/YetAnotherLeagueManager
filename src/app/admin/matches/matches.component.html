@@ -25,8 +25,7 @@
         </div>
     </div>
 
-    <ng-container *ngIf="authLevel===2||authLevel===1||curUser===manager">
-        <div class="page-content">
+    <div class="page-content">
             <h1> Add Player to team</h1>
             <form class="playerForm" (submit)="addPlayerSubmit()">
                 <input id="firstName" type="text" class="form-control" placeholder="First Name" required
@@ -34,33 +33,18 @@
                 <input id="surname" type="text" class="form-control" placeholder="Surname" required
                     (change)="updateSurname($event)" />
 
-                <select id="position" required autoFocus (change)="updatePosition($event)">
+                <select id="home" required autoFocus (change)="updateHomeTeam($event)">
                     <option id="Forward">Forward</option>
                     <option id="Defender">Defender</option>
                     <option id="Goalie">Goalie</option>
                 </select>
 
-                <select id="jersey" required autoFocus (change)="updateJersey($event)">
+                <select id="visitor" required autoFocus (change)="updateVisitorTeam($event)">
                     <option id="F">1</option>
                     <option id="D">2</option>
                     <option id="F">3</option>
                 </select>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Add Player</button>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Add Match</button>
             </form>
         </div>
-    </ng-container>
-
-    <ng-container *ngIf="authLevel===2||authLevel===1||curUser===manager">
-            <div class="page-content">
-            <h1> Assign / Change team manager</h1>
-            <form class="teamManagerForm" (submit)="teamManagerForm()">
-                <select id="teamManagerForm" required autoFocus (change)="updateManager($event)">
-                    <ng-template ngFor let-item [ngForOf]="userList" let-i="index">
-                        <option id="{{ userList[i].id }}" value="{{ userList[i].id }}"> {{ userList[i].email }} </option>
-                    </ng-template>
-                </select>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Change Manager</button>
-            </form>
-        </div>
-    </ng-container>
 </div>

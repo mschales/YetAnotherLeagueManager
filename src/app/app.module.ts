@@ -17,6 +17,7 @@ import { TeamAddComponent } from './team/add/teamAdd';
 import { ListTeamsComponent } from './team/list-teams/list-teams.component';
 import { ViewTeamComponent } from './team/view-team/view-team.component';
 import { MatchesComponent } from './admin/matches/matches.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
@@ -39,7 +40,8 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    BrowserAnimationsModule
   ],
   declarations: [
     AppComponent,
