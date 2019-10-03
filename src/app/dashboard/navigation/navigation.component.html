@@ -1,8 +1,7 @@
 <div id='navigation' class='navigation'>
     <ng-container *ngIf="user!==null">
         <div class='welcome'>
-            no notifications <hr />
-            {{ user.username }}
+            no notifications
         </div>
     </ng-container>
     <div class='navigation-list'>
@@ -36,7 +35,7 @@
             </ul>
 
             <ul>
-                <li><span class='discussion'></span> <i class="material-icons discussion-icon icon-align">chat</i> Discussion board</li>
+                <li><span class='discussion'></span> <i class="material-icons discussion-icon icon-align">chat</i><a href="/discussion">Discussion board</a></li>
             </ul>
 
             <ul>

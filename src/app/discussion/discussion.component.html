@@ -1,0 +1,22 @@
+<app-navigation> </app-navigation>
+<div class="content">
+    <div class="page-content">
+        <h1> DISCUSSION BOARD </h1>
+        <div>
+            <a href="/discussion/new"> <button class="btn btn-lg btn-primary btn-block" type="submit">Submit new
+                    post</button> </a>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <ng-template ngFor let-item [ngForOf]="topicList" let-i="index">
+        <div class="page-content">
+            <div class="team-item"> #{{ topicList[i].id }} | {{ topicList[i].title }} </div>
+            <div class="team-item">
+                <span class='topic-category'>{{ topicList[i].category }}</span> | 
+                <span class='topic-category'>{{ topicList[i].category }} replies</span> 
+            </div>
+        </div>
+    </ng-template>
+</div>

@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule, MatNativeDateModule, MatInputModule, MatSliderModule, MatSelectModule } from '@angular/material';
+import 'hammerjs/hammer';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -17,18 +20,18 @@ import { TeamAddComponent } from './team/add/teamAdd';
 import { ListTeamsComponent } from './team/list-teams/list-teams.component';
 import { ViewTeamComponent } from './team/view-team/view-team.component';
 import { MatchesComponent } from './admin/matches/matches.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDatepickerModule, MatNativeDateModule, MatInputModule, MatSliderModule, MatSelectModule } from '@angular/material';
-import 'hammerjs/hammer';
+import { DiscussionComponent } from './discussion/discussion.component';
+import { NewTopicComponent } from './discussion/newtopic/newtopic';
+import { MatChipsModule } from '@angular/material';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
   { path: 'register', pathMatch: 'full', component: RegisterComponent },
-
   { path: 'login', pathMatch: 'full', component: LoginComponent },
   { path: 'login', pathMatch: 'full', component: LoginComponent },
   { path: 'logout', component: LogoutComponent },
-
+  { path: 'discussion', component: DiscussionComponent, canActivate: [AuthGuard]},
+  { path: 'discussion/new', component: NewTopicComponent, canActivate: [AuthGuard]},
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   { path: 'team', pathMatch: 'full', component: TeamComponent, canActivate: [AuthGuard]},
   { path: 'team/add', component: TeamAddComponent, canActivate: [AuthGuard]},
@@ -46,6 +49,7 @@ const routes: Routes = [
     MatSelectModule,
     MatDatepickerModule,
     MatInputModule,
+    MatChipsModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
@@ -65,7 +69,9 @@ const routes: Routes = [
     TeamAddComponent,
     ListTeamsComponent,
     ViewTeamComponent,
-    MatchesComponent
+    MatchesComponent,
+    DiscussionComponent,
+    NewTopicComponent
   ],
   providers: [],
   bootstrap: [AppComponent],

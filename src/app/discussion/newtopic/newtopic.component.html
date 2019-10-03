@@ -1,0 +1,46 @@
+<app-navigation> </app-navigation>
+<div class="content">
+    <div class="page-content">
+        <h1> DISCUSSION BOARD </h1>
+        <div>
+            <a href="/discussion/"> <button class="btn btn-lg btn-primary btn-block">Back to discussion board</button> </a>
+        </div>
+    </div>
+
+    <ng-container *ngIf="authLevel===2||authLevel===1||curUser===manager">
+        <div class="page-content">
+            <h1> Create new post </h1>
+            <form class="createTopicForm" (submit)="submitNewTopicForm()">
+                    <mat-form-field>
+                    <mat-select id='permission' placeholder="POST PERMISSION" (selectionChange)="updateTopicPermission($event)">
+                        <mat-option id="0" value="0"> Public </mat-option>
+                        <mat-option id="1" value="1"> Private </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-select id='type' placeholder="POST TYPE" (selectionChange)="updateTopicType($event)">
+                        <mat-option id="general" value="general"> General </mat-option>
+                        <mat-option id="question" value="question"> Question </mat-option>
+                        <mat-option id="report" value="report"> Report </mat-option>
+                        <mat-option id="complaint" value="complaint"> Complaint </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field hintLabel="Max 250 characters">
+                    <input matInput #input id="topicTitle" placeholder="TOPIC TITLE" maxlength="250" (change)="updateTopicTitle($event)" required>
+                    <mat-hint align="end">{{input.value?.length || 0}}/250</mat-hint>
+                </mat-form-field>
+
+                        
+                <mat-form-field hintLabel="Max 2500 characters">
+                    <mat-label>Message</mat-label>
+                    <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="5" #textarea maxlength="2500" cdkAutosizeMaxRows="10" required></textarea>
+                        <mat-hint align="end">{{textarea.value?.length || 0}}/2500</mat-hint>
+                </mat-form-field>
+
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Submit new post</button>
+            </form>
+        </div>
+    </ng-container>
+</div>
